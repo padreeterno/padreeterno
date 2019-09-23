@@ -1,0 +1,118 @@
+/*TOP*/
+.j545K{
+    height: 45px;
+    background: var(--bg-bluea-);
+}
+    /*TOP left*/
+    .tp98c{
+        position: absolute;
+        background: var(--def-bbg-);
+        text-align: center;
+        display: block;
+        top: 0px;
+        width: 100px;
+        border-bottom-right-radius: 20px;
+        height: 45px;
+    }
+    .tp98c button{
+        padding: 0px;
+        border: 0px;
+        background: transparent;
+    }
+    .tp98c button div{
+        background: white;
+        margin: 5px 0px;
+        border-radius: 5px;
+        width: 30px;
+        height: 5px;
+    }
+.hopL09{ 
+    color: white;
+}
+.hopL09:hover{
+    background: white !important;
+    color: var(--fnt-l-) !important;
+}
+.bLp0J{
+    background : transparent;
+    border-radius: 0px;
+    padding: 0px 10px;
+}
+.bLp0J:hover{
+    background: var(--def-bbg-);
+    transition: .2s;
+}
+.bLp0J ion-icon,.fndUs button ion-icon{
+    color : white;
+    height : 25px;
+    width : 25px;
+}
+.bLp0J p{
+    font-size: 15px;
+    color: white;
+    line-height: .1;
+}
+    /*TOP left*/
+    /*TOP CENTER*/
+/*
+.fndUs input,button{
+    padding: 5px;
+    border-radius: 0px;
+}
+.fndUs input{
+    font-size: 12px;
+    color: #363f58;
+    font-weight: 700;
+    border-radius: 10px 0px 0px 10px;
+}
+.fndUs button{
+    border-radius: 0px 10px 10px 0px;
+}*/
+    /*TOP CENTER*/
+/*TOP*/
+/*BOTTOM*/
+.j545M{
+    height: 45px;
+    background: var(--def-bbg-);
+}
+/*BOTTOM*/
+#PopUPBig{
+    position: relative;
+    width: 80%;
+    height: 90%;
+    min-width: 40%;
+    min-height: 70%;
+    background: white;
+    border-radius: 15px;
+}
+#PopUPBig .seconte {
+    display: flex;
+    top: 0px;
+    width: 100%;
+    left: 0px;
+    justify-content: space-between;
+}
+#PopUPBig .seconte .terconE{
+    padding: 10px 10px;
+    background: var(--def-TercE-);
+    border-radius: 10px 0px 10px 0px;
+}
+#PopUPBig .seconte .terconE p{
+    color: white;
+    font-weight: 700;
+}
+#PopUPBig .seconte button{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    padding: 1px;
+    border-radius: 10px;
+    color: white;
+    background: red;
+    box-shadow: 1px 1px 10px -1px rgba(0, 0, 0, 0.54);
+    justify-content: center;
+    align-items: center;
+}
+#PopUPBig .seconte button ion-icon{
+
+}

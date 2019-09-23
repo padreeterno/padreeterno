@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap');
+/*font-family: 'Ubuntu', sans-serif;*/
+*{padding:0;margin:0;box-sizing:border-box;border:0px;}
+body,#bNL{
+    min-width: 750px;
+    /*background: #00c2ff1c;*/
+}
+:root{
+    --def-bbg- :rgb(54, 63, 88);
+    --def-TercE- : rgb(58, 150, 255);
+    --bg-bluea- : rgb(0, 119, 255);
+    --Ou-pI- : rgba(43, 156, 189, 0.34);
+    --test-Po- : rgba(54, 63, 88, 0.45);
+    --fnt-l- : rgb(88, 88, 88);
+    --Notifies-- : rgba(120, 120, 255, 0.747);
+    --Configs-- : rgb(255, 141, 0);
+    /**/
+    --trust- : rgb(0, 220, 255);
+    /**/
+    /*BTN LoginRegister Submit*/
+    --frm-sbt- : rgb(33, 150, 243);
+    /**/
+    /*BLUE GAMA*/
+    --fsrt-ble- :rgb(102, 102, 255);
+    --scnd-ble- : rgb(51, 102, 255);
+    --thr-ble- : rgb(0, 102, 204);
+    --fr-ble- : rgb(51, 51, 255);
+    --fv-ble- : rgb(0, 0, 255);
+    --sxx-ble- : rgb(0, 0, 204);
+    --sev-ble- : rgb(0, 0, 153);
+    /*BLACK GAMA*/
+    --fsrt-blk- :rgb(204, 204, 204);
+    --scnd-blk- : rgb(153, 153, 153);
+    --thr-blk- : rgb(102, 102, 102);
+    --fr-blk- : rgb(51, 51, 51);
+    --fv-blk- : rgba(0, 0, 0, 0);
+    --sxx-blk- : rgb(255, 255, 255);
+    /*BTN HOVER*/
+    --trN-HBtn- : rgba(255, 192, 203, 0.432);
+}
+a,p,option{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+button, input,li, strong, h1, h2, h3, h4, h5{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+}
+button,input{
+    padding: 6px;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid #0000001a;
+    border-radius: 5px;
+    margin: 5px;
+}
+select{
+    outline: none;
+}
+button:hover{
+    background: white;
+    color : black;
+    transition: .1s;
+	cursor: pointer;
+}
+.material-icons {
+  font-family: 'Material Icons';
+  width: 25px;
+  height: 25px;
+  color: white;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+ion-icon{
+    width: 25px;
+    height: 25px
+}
+select{
+    outline: none;
+}
+button:hover{
+	cursor: pointer;
+}
+.btnSh{
+    box-shadow: -1px 1px 11px 2px rgba(0, 0, 0, 0.149) !important;
+}
+._w{
+	width: 100%;
+}
+._h{
+	height: 100%;
+}
+._wh{
+	width: 100%;
+	height: auto;
+}
+.alct{
+    text-align: center;
+}
+.btnreset{
+    padding: 0px;
+    margin: 0px ;
+    border: 0px;
+}
+.abs{
+    position: absolute;
+}
+.StatIc{
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+    background: var(--test-Po-);
+}
+.modalScreenDanger{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: auto;
+    left: auto;
+    margin: 10px;
+    background: rgb(168, 0, 0);
+    display: flex;
+    padding : 10px 15px;
+    border-radius: 10px;
+    align-items: center;
+}
+.modalScreen{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: auto;
+    left: auto;
+    margin: 10px;
+    background: rgb(0, 128, 102);
+    display: flex;
+    padding : 10px 15px;
+    border-radius: 10px;
+    align-items: center;
+}
+.modalScreen button,.modalScreenDanger button{
+    padding: 0px;
+    border: none;
+    margin: 5px;
+    color: red;
+    border-radius: 50%;
+    font-size: 0px;
+    background: transparent;
+}
+.modalScreen p, .modalScreenDanger p{
+    font-size: 17px;
+    font-weight: 700;
+    color: white;
+}
+.modalScreen strong, .modalScreenDanger strong{
+    font-size: 11px;
+    font-weight: 100;
+    color: rgb(202, 202, 202);
+}
+/*
+.overlayModalScreen{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: auto;
+    left: auto;
+    display: flex;
+    align-items: center;
+    
+}
+*/
+.one{
+	-webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+}
+.Pfix{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+.diBlk{
+    display: block;
+}
+.ccN{
+    align-items: center;
+    justify-content: center;
+}
+.two{
+	-webkit-flex-grow: 3;
+    flex-grow: 3;
+}
+.flx{
+    display:flex;display: -webkit-flex;display: -moz-flex;display: -o-flex
+}
+.ctr_txt{
+    text-align : center;
+}
