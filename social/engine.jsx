@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router,Switch,Route} from "react-router-dom";
 //VIEW FISRT RENDER
-import TopView from "./views/inicio/topBar";
-import Inicio from "./views/inicio";
-import ControlViews from "./controlviews";
-import CompleteUser from "./successUserRegister";
+import Header from "./views/inicio/header";
+import interface_principal from "./views/interface_principal";
+import views_controller from "./controlviews";
+import complete_user_register from "./successUserRegister";
 //RUTAS
 // import Rutas from "./routes";
 //ERROR 404
@@ -13,11 +13,11 @@ class EngineSocial extends Component {
   render() {
     return (
       <Router>
-        <TopView/>
+        <Header/>
         <Switch>
-          <Route exact path="/" component={Inicio}/>
-          <Route path="/complete" component={CompleteUser}/>
-          <Route path="/:id" component={ControlViews}/>
+          <Route exact path="/" component={interface_principal}/>
+          <Route path="/complete" component={complete_user_register}/>
+          <Route path="/:id" component={views_controller}/>
         </Switch>
       </Router>
     );

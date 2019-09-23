@@ -1,6 +1,6 @@
 import React from "react";
-import { E404 } from "./views/Errors";
-export default class ControlViews extends React.Component{
+import { E404, E500} from "./views/Errors";
+export default class views_controller extends React.Component{
   render(){
     const { match : { params } } = this.props;
     console.log("Control views: ",this.props);
@@ -8,7 +8,10 @@ export default class ControlViews extends React.Component{
       case "perfil" : {
         return <p>Perfil</p>
       }
-      default : return <E404/>
+      case "internalserver500" : {
+        return <E500/>;
+      }
+      default : return <E404/>;
     }
   }
 }

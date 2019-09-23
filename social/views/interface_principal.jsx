@@ -1,6 +1,6 @@
 import React from "react";
-import Left from "../principal/left";
-import Right from "../principal/right";
+import Left_item_posts from "../principal/left";
+import Right_advertisement from "../principal/right";
 
 const posts = [
   {id: 0, title: 'Hello World', content: 'Welcome to learning React!',autorLink : "yoshua", autor : "Yoshua Lopez", portrait : "https://tpc.googlesyndication.com/daca_images/simgad/16304621669026015853"},
@@ -16,10 +16,10 @@ export default class Inicio extends React.Component{
   render(){
     return(
       <div style={{display: "grid",gridTemplateColumns : "minmax(min-content,74%) minmax(min-content,1%) minmax(min-content, 25%)",padding: "10px 5px"}}>
-        <Left posts={publications}>
-        </Left>
+        <Left_item_posts posts={publications}>
+        </Left_item_posts>
         <div></div>
-        <Right feeds={posts}/>
+        <Right_advertisement feeds={posts}/>
       </div>
     )
   }
