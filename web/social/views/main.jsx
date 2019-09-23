@@ -13,9 +13,10 @@ export default class Inicio extends Component {
     this.cambiar = this.cambiar.bind(this);
   }
   cambiar(){
-    this.setState({
-      estado : !this.state.estado
-    });
+    // Change because this is asynchronous
+    this.setState((prevState) => {
+      return { estado: !prevState.estado};
+  });
   }
   render() {
     const { estado } = this.state;

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./index.css";
 
 import {} from "";
@@ -22,7 +21,6 @@ export class Top extends Component {
 }
 export class Left extends Component {
   render() {
-    const { ee, dir } = this.props;
     return (
       <div>
         
@@ -32,7 +30,6 @@ export class Left extends Component {
 }
 export class Bottom extends Component {
     render() {
-      const { ee, dir } = this.props;
       return (
         <div>
           

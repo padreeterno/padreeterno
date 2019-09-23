@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import "./file.css";
 export default class Left extends Component{
+    constructor(props) {
+        super(props);
+        this.state = { value: 'Hi' };
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(e) {
+        this.setState({ value: e.target.value });
+    }
     render(){
         return(
             <div style={this.props.posts && {marginBottom: "auto"}} class={this.props.posts ? "contenFieldPrincipal" : "contenFieldPrincipal flx ccN"}>
@@ -27,9 +35,9 @@ export default class Left extends Component{
                     })
                 }
                 {
-                    !this.props.posts && <form class="PsTContextPsT">
+                    !this.props.posts && <form className="PsTContextPsT">
                     <p>Aun no tienes publicaciones, realiza tu primera publicacion.</p>
-                    <textarea rows="5" cols="50">Enter your name</textarea>
+                    <textarea rows="5" cols="50" value={this.state.value} onChange={this.handleChange}/>
                     <input type="file"/>
                     <button>Publicar</button>
                 </form>

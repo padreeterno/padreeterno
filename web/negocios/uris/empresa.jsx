@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./index.css";
 import axios from "axios";
 
-import {makeRequest,makeposting,cookieCreate} from "../../../helps";
+import { cookieCreate } from "../../../helps";
 let i = 0;
 export default class Empresa extends Component {
   constructor(props){

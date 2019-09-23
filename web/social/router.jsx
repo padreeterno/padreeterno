@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import ReactDOM from 'react-dom';
 import {E404} from "../Errors";
 export default class Router extends Component{
     render(){

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router,Switch,Route} from "react-router-dom";
-import queryString from 'query-string';
-import axios from "axios";
 //VIEW FISRT RENDER
 import Principal from "./views/principal/principal";
 //RUTAS

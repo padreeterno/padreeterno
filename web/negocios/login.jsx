@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
-import queryString from "query-string";
 import axios from "axios";
 
-import { makeposting ,cookieCreate} from "../../helps"
+import { cookieCreate} from "../../helps"
 export default class Login extends Component {
   constructor(props) {
     super(props);
