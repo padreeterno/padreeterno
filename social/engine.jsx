@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router,Switch,Route} from "react-router-dom";
-import fire from "../fire/auth";
-import queryString from 'query-string';
-import axios from "axios";
 //VIEW FISRT RENDER
 import TopView from "./views/inicio/topBar";
 import Inicio from "./views/inicio";

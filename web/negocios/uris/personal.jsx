@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./index.css";
 import axios from "axios";
 
-import {makeRequest,makeposting,cookieCreate} from "../../../helps";
+import {cookieCreate} from "../../../helps";
 let i = 0;
 export default class Personal extends Component {
   constructor(props){

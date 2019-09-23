@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import queryString from 'query-string';
 //URIS
 //Components
 import TOP from "./topbottom/top";
 import BOTTOM from "./topbottom/bottom";
 //VIEWS
-import Principal from "./views/principal/principal";
 
 export default class Rutas extends Component{
   componentDidMount(){

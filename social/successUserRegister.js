@@ -55,7 +55,9 @@ export default class SuccessUserRegister extends React.Component{
       });
     })
   }
-  closeAlert = (e) => this.setState({modalfalse : false, modaltrue : false, modalReturnedTrue : false, modalReturnedFalse : false});
+  closeAlert(){
+    return this.setState({modalfalse : false, modaltrue : false, modalReturnedTrue : false, modalReturnedFalse : false});
+  }
   resendEmailVerification(){
     var user = Fire.currentUser;
     console.log(`IMAGEN URL: ${user.photoURL}`);

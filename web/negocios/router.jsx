@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import ReactDOM from 'react-dom';
 
 import Login from "./login";
 export default class Router extends Component{
