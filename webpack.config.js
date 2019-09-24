@@ -1,14 +1,10 @@
-const Common = require("./webpack.common");
-const Web = require("./webpack.w.common");
-const Bussiness = require("./webpack.b.common");
-const Social = require("./webpack.s.common");
-module.exports = [
-  Common,
-  Web.one,
-  Web.two,
-  Web.three,
-  Bussiness.one,
-  Social.one,
-  Social.two,
-  Social.three
-];
+const dev = require("./webpack.dev");
+const prod = require("./webpack.prod");
+module.exports = (env,argv) =>{
+    var isDevelopmentMode = ( argv.mode === "development" );
+    console.log(process.env.NODE_ENV)
+    if(isDevelopmentMode){
+        return dev;
+    }
+    return prod;
+}

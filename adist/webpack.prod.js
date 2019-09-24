@@ -1,3 +1,6 @@
+const dev_bussines = require("./bussines/webpack.dev");
+const dev_social = require("./social/webpack.dev");
+const dev_web = require("./web/webpack.dev");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -5,21 +8,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // Extract CSS
 module.exports = {
-  one: {
+  general : {
     mode: "production",
-    entry: "./bussiness/engine.jsx",
-    output: {
-      path: path.resolve(__dirname, "dist"),
-      filename: "[hash].[hash].bundle.js",
-      publicPath: "/"
-    },
-    devServer: {
-      historyApiFallback: true,
-      contentBase: path.join(__dirname, "public"),
-      compress: true,
-      //useLocalIp: true,
-      port: 4000
-    },
     devtool: false,
     performance: {
       hints: false,
@@ -37,12 +27,12 @@ module.exports = {
           use: ["babel-loader"]
         },
         {
-          test: /\.svg$/,
-          use: ["@svgr/webpack"]
-        },
-        {
           test: /\.(jpe?g|png|gif|mp3|webp)$/i,
           loaders: ["file-loader", "webp-loader?{quality:13}"]
+        },
+        {
+          test: /\.svg$/,
+          use: ["@svgr/webpack"]
         },
         {
           test: /\.css$/,
@@ -70,6 +60,21 @@ module.exports = {
         filename: "[name].[hash].css",
         chunkFilename: "[id].[hash].css"
       })
-    ]
-  }
+    ],
+  },
+  prod : {
+    entry: "./run.js",
+    output: {
+      path: path.resolve(__dirname, "dist"),
+      filename: "[hash].bundle.js",
+      publicPath: "/"
+    },
+  },
+  dev_bussines : dev_bussines.one,
+  dev_social : dev_social.one,
+  dev_social_one : dev_social.two,
+  dev_social_two : dev_social.three,
+  dev_web : dev_web.one,
+  dev_web_one : dev_web.two,
+  dev_web_two : dev_web.three,
 };
