@@ -78,7 +78,7 @@ module.exports = {
   two: {
     mode: "production",
     entry: {
-      one: "./social/views/inicio/topBar.jsx",
+      one: "./social/views/inicio/header.jsx",
       two: "./social/views/inicio/avatar/avatar.jsx",
       three: "./social/views/inicio/searchbox/search.jsx",
       four: "./social/views/boxes/registerBox.js"
@@ -150,7 +150,7 @@ module.exports = {
   three : {
     mode: "production",
     entry: {
-      inicio: "./social/views/inicio.jsx",
+      inicio: "./social/views/interface_principal.jsx",
       error: "./social/views/Errors.jsx"
     },
     output: {

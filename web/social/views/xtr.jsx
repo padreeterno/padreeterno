@@ -1,6 +1,7 @@
 import React,{ Component } from "react";
 import fire from "../../../fire/auth";
 import db from "../../../fire/db";
+import credential from "./credentialverifi";
 import { guestId } from "../../../id";
 import "./index.css";
 
@@ -21,10 +22,9 @@ export class Loggin extends Component{
   ingreso(e){
     e.preventDefault();
     var email = this.email.value;
-    var password = this.password.value
-    console.log(email,password)
+    var password = this.password.value;
     fire.signInWithEmailAndPassword(email,password).then((u)=>{
-      console.log(u)
+      return window.location.assign("/");
     }).catch((e)=>{
       switch (e.code) {
         case "auth/user-not-found":{
@@ -68,7 +68,8 @@ export class Registro extends Component{
     super(props);
     this.state = {
       message : "",
-      vpas : null
+      vpas : null,
+      _isPasswordLength : false,
     };
     this.registro = this.registro.bind(this);
     this.verifyPassword = this.verifyPassword.bind(this);
@@ -81,6 +82,7 @@ export class Registro extends Component{
     e.preventDefault();
     var email = this.email.value;
     var password = this.password.value;
+
     var guest = guestId();
     if(!this.state.vpas){
       return this.setState({
@@ -95,11 +97,12 @@ export class Registro extends Component{
           uid: e.user.uid,
           email : e.user.email,
           creado : Date.now(),
-          name : guest
+          name : guest,
+          username : guest,
         }).then(() => {
-          return window.location.replace("/complete?id="+e.user.uid+"&time="+Date.now());
+          return window.location.assign("/complete?id="+e.user.uid+"&time="+Date.now());
         }).catch((error)=>{
-          console.log(`error ${error}`)
+          return this.setState({ message : "Verifica tu conexion a internet"});
         });
       });
     }).catch((e)=>{
@@ -118,14 +121,23 @@ export class Registro extends Component{
   }
   verifyPassword(){
     var password = this.password.value;
-    var verifipassword = this.vpassword.value;
+    var password_verifi = this.vpassword.value;
+    var __password = credential.password(password,password_verifi);
+    
+    if(__password._isPasswordLength){
+      this.setState({
+         _isPasswordLength : true,
+      });
 
-    if(password == verifipassword){
-      return this.setState({
-        vpas : true
-      })
+      if(__password.isCorrect){
+        return this.setState({
+          _isPasswordLength : true,
+          vpas : true
+        });
+      }
     }
     return this.setState({
+      _isPasswordLength : false,
       vpas : false
     })
   }

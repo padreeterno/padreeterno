@@ -3,6 +3,7 @@ import FireAuth from "../../../fire/auth";
 import FireStorage from "../../../fire/storage";
 import db from "../../../fire/db";
 import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
+import tipedUsername from "./username_tiped";
 import "./stiles.css";
 export default class RegisterBox extends React.Component{
   state = {
@@ -13,21 +14,27 @@ export default class RegisterBox extends React.Component{
     avatarURL: "",
     statusResend : true,
     sending : false,
-    valueMessage : ""
+    valueMessage : "",
+    isEspecialChar : false
   };
 
   handleChangeUsername = event =>{
-    this.setState({ username: event.target.value })
-    if(event.target.value.length < 5){
-      this.setState({
+    this.setState({ username: event.target.value });
+    var usernameValidityCharacter = tipedUsername.username(event.target.value);
+    if(usernameValidityCharacter.message){
+      return this.setState({
+        isEspecialChar : true,
+      });
+    }
+    if(usernameValidityCharacter.data < 5){
+      return this.setState({
         username : this.props.username ? this.props.username : this.state.username,
         sending : false
       });
-    }else{
-      this.setState({
-        sending : true
-      });
     }
+    return this.setState({
+      sending : true
+    });
   };
   handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
   handleProgress = progress => this.setState({ progress });
@@ -49,12 +56,9 @@ export default class RegisterBox extends React.Component{
   updateAvatarAndNameUser = (e) => {
     e.preventDefault();
     if(!this.state.sending){
-      this.setState({
-        username : this.props.username ? this.props.username : this.state.username,
-        sending : true
-      });
-      console.log("MAYOR 5")
       return this.setState({
+        username : this.props.username ? this.props.username : this.state.username,
+        sending : true,
         valueMessage : "Longitud de caracteres \"5\""
       });
     }
@@ -106,6 +110,7 @@ export default class RegisterBox extends React.Component{
             <p style={{padding: "0px 10px",color: "white",fontWeight: 700}}>Nombre Completo</p>
             <input
               type="text"
+              style={this.state.isEspecialChar ? { color : "red"} : { color : "black"}}
               value={this.state.username}
               name="username"
               placeholder={this.props.username}
