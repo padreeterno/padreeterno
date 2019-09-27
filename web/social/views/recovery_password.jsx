@@ -1,21 +1,25 @@
 import React,{ Component } from "react";
-import fire from "../../../fire/auth";
+import recoverypassword from "./actions/recoverypassword";
 
 export default class Recovery_password extends Component{
     constructor(props){
         super(props);
-        this.state = {};
-
+        this.state = {
+            messageRecovery : false
+        };
         this.emailToRecovery = React.createRef();
         this.sendEmail = this.sendEmail.bind(this);
     }
     sendEmail(e){
         e.preventDefault();
         var __email = this.emailToRecovery.value;
-        var firebaseUriResetPassword = "";
-        fire.sendPasswordResetEmail(__email,firebaseUriResetPassword).then((e) =>{
-            console.log("Password recovery send sucessfully", e);
-            return window.location.replace("/social")
+        var estatus = recoverypassword(__email);
+        console.log(estatus);
+        if(estatus.isSending === 1){
+            return window.location.replace(`/social?recovery=${estatus.message}`);
+        }
+        return this.setState({
+            messageRecovery : estatus.message
         });
     }
     render(){
@@ -25,6 +29,9 @@ export default class Recovery_password extends Component{
                     <h1 style={{paddingBottom: "50px"}}>Recuperar Contraseña</h1>
                     <input type="email" placeholder="correo electronico" ref={(value) => this.emailToRecovery = value}/>
                     <button type="submit">Enviar</button>
+                    {this.state.messageRecovery && <div>
+                        <p>{this.state.messageRecovery}</p>
+                    </div>}
                 </form>
             </div>
         );
