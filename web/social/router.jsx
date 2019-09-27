@@ -5,6 +5,8 @@ export default class Router extends Component{
     render(){
         const {match} = this.props;
         switch(match.params.id.toLowerCase()){
+
+            
             case "recovery" : return <RecoveryPassword/>;
             default : return <E404/>;
         }
