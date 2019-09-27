@@ -25,8 +25,8 @@ export class Loggin extends Component{
     var password = this.password.value;
     fire.signInWithEmailAndPassword(email,password).then((u)=>{
       return window.location.assign("/");
-    }).catch((e)=>{
-      switch (e.code) {
+    }).catch((auth)=>{
+      switch (auth.code) {
         case "auth/user-not-found":{
           return this.setState({ message : "Correo no registrado"});
         }
@@ -34,7 +34,7 @@ export class Loggin extends Component{
           return this.setState({ message : "Contraseña Incorrecta"});
         }
       }
-      console.log(e)
+      console.log(auth)
     });
   }
   render(){
@@ -60,7 +60,7 @@ export class Loggin extends Component{
         </div>
         { this.state.message && <p style={{position: "absolute",left: 0,top: 0,color: "white",padding: "5px 10px",fontSize: "13px",background: "rgb(142, 156, 255)",borderRadius: "10px",fontWeight: 700}}>{this.state.message}</p>}
       </form>
-    )
+    );
   }
 }
 export class Registro extends Component{
@@ -69,7 +69,7 @@ export class Registro extends Component{
     this.state = {
       message : "",
       vpas : null,
-      _isPasswordLength : false,
+      pushPasswordRequeriments: null,
     };
     this.registro = this.registro.bind(this);
     this.verifyPassword = this.verifyPassword.bind(this);
@@ -101,7 +101,7 @@ export class Registro extends Component{
           username : guest,
         }).then(() => {
           return window.location.assign("/complete?id="+e.user.uid+"&time="+Date.now());
-        }).catch((error)=>{
+        }).catch(()=>{
           return this.setState({ message : "Verifica tu conexion a internet"});
         });
       });
@@ -123,23 +123,16 @@ export class Registro extends Component{
     var password = this.password.value;
     var password_verifi = this.vpassword.value;
     var __password = credential.password(password,password_verifi);
-    
-    if(__password._isPasswordLength){
-      this.setState({
-         _isPasswordLength : true,
+    if(__password.isCorrect){
+      return this.setState({
+        vpas : true,
+        pushPasswordRequeriments : "",
       });
-
-      if(__password.isCorrect){
-        return this.setState({
-          _isPasswordLength : true,
-          vpas : true
-        });
-      }
     }
-    return this.setState({
-      _isPasswordLength : false,
-      vpas : false
-    })
+    this.setState({
+      vpas : true,
+      pushPasswordRequeriments : __password.message
+    });
   }
   render(){
     return(
@@ -156,7 +149,7 @@ export class Registro extends Component{
           <div className="flx">
             <div>
               <p style={{ fontWeight : 700 }}>Contrase&ntilde;a</p>
-              <input type="password" style={this.state.vpas ? { color : "rgb(142, 156, 255)"} : {}} ref={e => this.password = e} placeholder="contraseña"/>
+              <input type="password" style={this.state.vpas ? { color : "rgb(142, 156, 255)"} : {}} ref={e => this.password = e} onChange={this.verifyPassword} placeholder="contraseña"/>
             </div>
             <div>
               <p style={{ fontWeight : 700 }}>confirmar contrase&ntilde;a</p>
@@ -168,7 +161,12 @@ export class Registro extends Component{
           </div>
         </div>
         { this.state.message && <p className="PopUpRLMainView">{this.state.message}</p>}
+        { this.state.pushPasswordRequeriments && <div style={{background: "transparent"}} className="flx PopUpRLMainView">
+          {this.state.pushPasswordRequeriments.map((key) =>{
+          return( <p style={{padding: "5px 10px",borderRadius: "10px",margin: "0px 5px", background : "red"}} key={key} >{key}</p> );
+          })}
+        </div>}
       </form>
-    )
+    );
   }
 }

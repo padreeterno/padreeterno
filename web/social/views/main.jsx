@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./index.css";
 import BeenHere from "./icon.svg";
 import { Loggin,Registro } from "./xtr";
+import "./index.css";
 
 export default class Inicio extends Component {
   constructor(props){
@@ -9,7 +9,6 @@ export default class Inicio extends Component {
     this.state = {
       estado : true
     }
-
     this.cambiar = this.cambiar.bind(this);
   }
   cambiar(){

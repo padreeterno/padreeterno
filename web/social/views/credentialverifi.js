@@ -4,10 +4,13 @@ module.exports.password = function (password_one,password_two){
 	var _passwordOneSpaceBar = password_one.indexOf(" ");
 	var _passwordTwoSpaceBar = password_two.indexOf(" ");
 	
+	if(password_one != password_two || password_two != password_one){
+		__returned.isMatched = false;	
+	}
 	if( _passwordOneSpaceBar !== -1 || _passwordTwoSpaceBar !== -1 ){
 		__returned._isSpaceBar = true;
 	}
-	if(password_one.length < 8){
+	if(password_one.length < 8 || password_two.length < 8){
 		__returned._isPasswordLength = true;
 	}
 	if(password_one === password_two){
@@ -23,8 +26,7 @@ module.exports.password = function (password_one,password_two){
 		_returnedData.message.push("No hay coincidencia");
 	}
 	if(__returned.isMatched){
-		console.log(_returnedData.message.length,password_one,password_two)
-		if(_returnedData.message.length < 0 ){
+		if(_returnedData.message.length <= 0 ){
 			_returnedData.isCorrect = __returned.isMatched;
 			_returnedData.message = null
 		}
