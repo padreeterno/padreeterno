@@ -179,18 +179,6 @@ button:hover{
     font-weight: 100;
     color: rgb(202, 202, 202);
 }
-/*
-.overlayModalScreen{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    top: auto;
-    left: auto;
-    display: flex;
-    align-items: center;
-    
-}
-*/
 .one{
 	-webkit-flex-direction: row;
     -moz-flex-direction: row;
