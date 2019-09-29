@@ -1,5 +1,5 @@
 import React,{ Component } from "react";
-import credential from "../credentialverifi";
+import credential from "../modules/credentialverifi";
 
 export default class Registro extends Component{
     constructor(props){

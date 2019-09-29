@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router,Switch,Route} from "react-router-dom";
 //VIEW FISRT RENDER
-import Header from "./views/inicio/header";
+import Header from "./header/header";
 import interface_principal from "./views/interface_principal";
 import views_controller from "./controlviews";
-import complete_user_register from "./successUserRegister";
+import complete_user_register from "./views/successUserRegister";
 //RUTAS
 // import Rutas from "./routes";
 //ERROR 404

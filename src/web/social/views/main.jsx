@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BeenHere from "./icon.svg";
+import BeenHere from "../../config/icon.svg";
 import { Loggin,Registro } from "./formsSocial";
 import "./index.css";
 

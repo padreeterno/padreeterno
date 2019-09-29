@@ -1,4 +1,4 @@
-const input_validator = require("./input_validator");
+const input_validator = require("../input_validator");
 describe("Prueba Input create post", () => {
   it("sin especial caracteres", () => {
     var result = input_validator.input_verifi_char("hola");

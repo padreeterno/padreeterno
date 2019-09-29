@@ -1,4 +1,4 @@
-const search = require("./search_func");
+const search = require("../search_func");
 describe("Prueba Search", () => {
   const item = search;
   it("sin especial caracteres", () => {

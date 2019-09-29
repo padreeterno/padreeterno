@@ -1,6 +1,6 @@
 import React from "react";
-import LeftItemPosts from "../principal/left";
-import RightAdvertisement from "../principal/right";
+import LeftItemPosts from "./components/dividescreen/left";
+import RightAdvertisement from "./components/dividescreen/right";
 
 const posts = [
   {id: 0, title: 'Hello World', content: 'Welcome to learning React!',autorLink : "yoshua", autor : "Yoshua Lopez", portrait : "https://tpc.googlesyndication.com/daca_images/simgad/16304621669026015853"},

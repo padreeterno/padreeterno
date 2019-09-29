@@ -1,6 +1,7 @@
 import React,{ Component } from "react";
 import fire from "../../../fire/auth";
-import db from "../../../fire/db";
+import { loginuser, registeruser } from "./modules/formsocial";
+import database from "../../../fire/db";
 import { guestId } from "../../../id";
 import UserLogin from "./components/userlogin";
 import UserRegister from "./components/userregister";
@@ -14,22 +15,17 @@ export class Loggin extends Component{
     }
     this.sendData = this.sendData.bind(this);
   }
-  sendData(data){
-    console.log(data)
-    fire.signInWithEmailAndPassword(data.email,data.password).then((u)=>{
-      return window.location.assign("/");
-    }).catch((auth)=>{
-      switch (auth.code) {
-        case "auth/user-not-found":{
-          return this.setState({ message : "Correo no registrado"});
-        }
-        case "auth/wrong-password":{
-          return this.setState({ message : "Contraseña Incorrecta"});
-        }
-        default : return this.setState({ message : "Error no definido"});
-      }
-    });
-
+  async sendData(data){
+    console.log(data);
+    const email = data.email;
+    const password = data.password;
+    const isLogged = await loginuser({fire,email,password});
+    if(isLogged.isSending === 0){
+      return this.setState({
+        message : isLogged.message,
+      });
+    }
+    return window.location.assign("/");
   }
   render(){
     return(
@@ -48,42 +44,25 @@ export class Registro extends Component{
       pushPasswordRequeriments: null,
     };
   };
-  sendData(data){
-    var guest = guestId();
+  async sendData(data){
+    var id = guestId();
+    const email = data.email;
+    const password = data.password;
     if(!data.isMatchedPassword){
       return this.setState({
         message : "Confirme las contraseñas"
       });
     }
-    fire.createUserWithEmailAndPassword(data.email, data.password).then((e)=>{
-      fire.currentUser.updateProfile({
-        displayName : guest
-      }).then(()=>{
-        db.ref(`users/${e.user.uid}`).set({
-            uid: e.user.uid,
-            email : e.user.email,
-            creado : Date.now(),
-            name : guest,
-            username : guest,
-        }).then(() => {
-          return window.location.assign("/complete?id="+e.user.uid+"&time="+Date.now());
-        }).catch(()=>{
-          return this.setState({ message : "Verifica tu conexion a internet"});
-        });
-      });
-    }).catch((e)=>{
-      switch (e.code) {
-        case "auth/email-already-in-use":{
-          this.email.value = "";
-          this.password.value = "";
-          this.vpassword.value = "";
-          return this.setState({ message : "Usuario ya registrado"});
-        }
-        default : {
-          return this.setState({ message : "Problema no definido"});
-        }
+    const stayLogged = await registeruser({fire,email,password,database,id});
+    if(stayLogged.isSending === 0){
+      if(stayLogged.code){
+        console.log(stayLogged.code);
       }
-    });
+      return this.setState({
+        message : stayLogged.message
+      })
+    }
+    return window.location.assign("/complete?id="+stayLogged.message+"&time="+Date.now());
   }
   render(){
     return(

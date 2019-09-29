@@ -1,4 +1,4 @@
-import credential from "./credentialverifi";
+import credential from "../credentialverifi";
 
 describe("credentialverifi",() =>{
 	it("Length",() =>{

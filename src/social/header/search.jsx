@@ -1,5 +1,5 @@
 import React from "react";
-import searchValidator from "./search_func";
+import searchValidator from "../views/modules/search_func";
 
 export default class SearchBox extends React.Component{
     state = {

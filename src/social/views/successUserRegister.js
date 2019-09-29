@@ -1,7 +1,7 @@
 import React from "react";
 import queryString from "query-string";
-import BoxRegister from "./views/boxes/registerBox";
-import Fire from "../fire/auth";
+import BoxRegister from "./components/popup/registerBox";
+import Fire from "../../fire/auth";
 import Modal from "react-modal";
 export default class SuccessUserRegister extends React.Component{
   constructor() {

@@ -1,7 +1,6 @@
 import React,{ Component } from "react";
 import { Link } from "react-router-dom";
-import fireAuth from "../../../../fire/auth";
-import "./avatar.css"
+import fireAuth from "../../fire/auth";
 export default class Avatar extends Component{
     render(){
         return(

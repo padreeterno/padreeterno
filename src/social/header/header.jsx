@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SearchBox from "./searchbox/search";
-import Auth from "../../../fire/auth";
-import Avatar from "./avatar/avatar";
-import "./tpBar.css";
+import SearchBox from "./search";
+import Auth from "../../fire/auth";
+import Avatar from "./avatar";
+import "./index.css";
 
 export default class TopBar extends React.Component{
   closeSession = async () => {

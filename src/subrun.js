@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import fireAuth from "./fire/auth";
 //IF NOT LOGGED
-import Web from "./web/router.js";
+import Web from "./web/router";
 import Social from "./social/engine";
 
 class Main extends Component {

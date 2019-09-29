@@ -1,10 +1,10 @@
 import React from "react";
-import FireAuth from "../../../fire/auth";
-import FireStorage from "../../../fire/storage";
-import db from "../../../fire/db";
+import FireAuth from "../../../../fire/auth";
+import FireStorage from "../../../../fire/storage";
+import db from "../../../../fire/db";
 import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
-import tipedUsername from "./username_tiped";
-import "./stiles.css";
+import tipedUsername from "../../modules/username_tiped";
+import "../stiles.css";
 export default class RegisterBox extends React.Component{
   state = {
     username: "",

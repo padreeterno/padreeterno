@@ -1,55 +1,31 @@
-import React, { Component, Fragment } from "react";
-import axios from "axios";
+import React, { Component } from "react";
+import fire from "../../fire/auth";
+import { loginUser } from "./modules/loginuser";
 
-import { cookieCreate} from "../helps"
 export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      estado : ""
+      messageLogged : "",
+      dontstaySendingLogin : true,
     }
-
     this.inicioSesion = this.inicioSesion.bind(this);
-    // Crea una referencia para guardar el elemento textInput del DOM
-    this.username = React.createRef();
+    this.email = React.createRef();
     this.password = React.createRef();
   }
-  componentDidMount() {
-
-  }
-  inicioSesion(e) {
+  async inicioSesion(e) {
     e.preventDefault();
-    const username = this.username.value;
+    this.setState({dontstaySendingLogin : false});
+    const email = this.email.value;
     const password = this.password.value;
-    const access = Date.now();
-    console.log({access,username,password})
-    //makeposting("http://127.0.0.1:8000/api/negocios/session", JSON.stringify({ access, username, password }))
-
-    axios.post("http://127.0.0.1:8000/api/negocios/session",{ access, username, password },{headers : { 'Content-Type' : 'application/json;charset=utf-8' }})
-    .then(result => {
-        var respuesta = result.data;
-        console.log(respuesta)
-        if(respuesta.success){
-          this.setState({
-            estado : ""
-          })
-          cookieCreate({id : "_hash",response : respuesta.success},Date.now() + 60 * 60 * 4000,"/");
-          return window.location.replace("/");
-        }
-        if(respuesta.error){
-          return this.setState({
-            estado : respuesta.error
-          })
-        }
-      })
-      .catch(err => {
-        console.log(err);
-        if(err.status === 0){
-          return this.setState({
-            estado : "No tiene conexion a internet"
-          })
-        }
+    const isLogged = await loginUser({fire,email,password});
+    if(isLogged.isSending === 0){
+      return this.setState({
+        dontstaySendingLogin : true,
+        messageLogged : isLogged.message,
       });
+    }
+    return window.location.assign("/");;
   }
   render() {
     return (
@@ -74,11 +50,11 @@ export default class Login extends Component {
                   borderBottom: ".5px solid rgb(0,0,0,.1)"
                 }}
                 autoComplete="off"
-                name="username"
+                name="email"
                 type="text"
-                placeholder="nombre de usuario"
+                placeholder="Correo electr&oacute;nico"
                 required
-                ref={e => this.username = e}
+                ref={e => this.email = e}
               />
             </div>
             <div>
@@ -91,20 +67,14 @@ export default class Login extends Component {
                 }}
                 name="pwdnego"
                 type="password"
-                placeholder="contrase&ntilde;a"
+                placeholder="Contrase&ntilde;a"
                 required
                 ref={e => this.password = e}
               />
             </div>
             <div>
-            {
-              !this.state.estado ? (<Fragment><div className="prueba"></div></Fragment>) : (<Fragment>
-                  <p style={{ color: "red",fontWeight: 700,fontSize: "14px"}}>{this.state.estado}</p>
-                </Fragment>)
-            }
-              <button className="BNT_subPP" type="submit">
-                Ingresar
-              </button>
+              {this.state.messageLogged && <p style={{ color: "red",fontWeight: 700,fontSize: "14px"}}>{this.state.messageLogged}</p>}
+              <button className="BNT_subPP" type={this.state.dontstaySendingLogin ? "submit" : "button"}>{this.state.dontstaySendingLogin ? " Ingresar " : " . . . "}</button>
             </div>
           </form>
         </div>

@@ -1,4 +1,4 @@
-import funcionUsername from "./username_tiped";
+import funcionUsername from "../username_tiped";
 describe("username_tiped",() =>{
 	// number 1 == invalid character
 	// number 0 == valid character

@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import input_validator from "./input_validator";
+import input_validator from "../../modules/input_validator";
 import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 import { Link } from "react-router-dom";
 import Modal from "react-modal";

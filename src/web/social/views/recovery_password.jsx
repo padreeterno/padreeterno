@@ -1,6 +1,6 @@
 import React,{ Component } from "react";
 import fire from "../../../fire/auth";
-import recoverypassword from "./actions/recoverypassword";
+import recoverypassword from "./modules/recoverypassword";
 
 export default class Recovery_password extends Component{
     constructor(props){
