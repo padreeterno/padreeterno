@@ -4,7 +4,7 @@ export class E404 extends Component {
   render() {
     return (
       <div className="hash404ui">
-        <h1>404</h1>
+        <center><h1>404</h1></center>
       </div>
     );
   }

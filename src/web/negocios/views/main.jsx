@@ -35,8 +35,6 @@ class Inicio extends Component{
 	}
 }
 class REG extends Component{
-	mues(e,f){
-	}
 	render(){
 		return(
 				<div id="Wnd_fmR">

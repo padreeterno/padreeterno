@@ -33,7 +33,7 @@ module.exports.registeruser = async ({fire,email,password,id,database}) =>{
         const resultUID = await fire.createUserWithEmailAndPassword(email,password);
         const uid = resultUID.user.uid;
         await fire.currentUser.updateProfile({displayName : id });
-        await database.ref(`users/${uid}`).set({ isBussiness : true,uid: uid, email : email, creado : Date.now(),name : id,username : id,});
+        await database.ref(`users/${uid}`).set({ isBussiness : false,uid: uid, email : email, creado : Date.now(),name : id,username : id,});
         retorno.isSending = 1;
         retorno.message = uid;
         return retorno;
