@@ -10,4 +10,3 @@ module.exports.input_verifi_char  = function(value){
     
     return item_returned;
 }
-// module.exports = Search;
