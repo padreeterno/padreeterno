@@ -1,7 +1,8 @@
 import React,{ Component } from "react";
 import fire from "../../../fire/auth";
-import { loginuser, registeruser } from "./modules/formsocial";
 import database from "../../../fire/db";
+import logincheckout from "../../modules/login_user";
+import registercheckout from "../../modules/register_user";
 import { guestId } from "../../../id";
 import UserLogin from "./components/userlogin";
 import UserRegister from "./components/userregister";
@@ -16,10 +17,9 @@ export class Loggin extends Component{
     this.sendData = this.sendData.bind(this);
   }
   async sendData(data){
-    console.log(data);
     const email = data.email;
     const password = data.password;
-    const isLogged = await loginuser({fire,email,password});
+    const isLogged = await logincheckout({fireauth : fire,email,password});
     if(isLogged.isSending === 0){
       return this.setState({
         message : isLogged.message,
@@ -53,7 +53,21 @@ export class Registro extends Component{
         message : "Confirme las contraseñas"
       });
     }
-    const stayLogged = await registeruser({fire,email,password,database,id});
+    const userdata = { 
+      isBussiness : false,
+      origin : "social",
+      email : email, 
+      creado : Date.now(),
+      name : id,
+      username : id,
+    }
+    const stayLogged = await registercheckout({
+      fireauth : fire,
+      email,
+      password,
+      firedatabase : database,
+      userdata
+    });
     if(stayLogged.isSending === 0){
       if(stayLogged.code){
         console.log(stayLogged.code);
@@ -62,7 +76,9 @@ export class Registro extends Component{
         message : stayLogged.message
       })
     }
-    return window.location.assign("/complete?id="+stayLogged.message+"&time="+Date.now());
+    if(stayLogged.isSending === 1){
+      return window.location.assign("/complete?id="+stayLogged.message+"&time="+Date.now());
+    }
   }
   render(){
     return(

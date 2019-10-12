@@ -15,6 +15,7 @@ body,#bNL{
     --Notifies-- : rgba(120, 120, 255, 0.747);
     --Configs-- : rgb(255, 141, 0);
     /**/
+    --color-primary-button- : rgb(66, 133, 244);
     --trust- : rgb(0, 220, 255);
     /**/
     /*BTN LoginRegister Submit*/
@@ -125,7 +126,7 @@ button:hover{
     margin: 0px ;
     border: 0px;
 }
-.abs{
+.absolute{
     position: absolute;
 }
 .StatIc{

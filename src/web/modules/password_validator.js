@@ -17,10 +17,10 @@ module.exports.password = function (password_one,password_two){
 		__returned.isMatched = true;	
 	}
 	if(__returned._isSpaceBar){
-		_returnedData.message.push("Eliminar el espacio");
+		_returnedData.message.push("Eliminar espacio");
 	}
 	if(__returned._isPasswordLength){
-		_returnedData.message.push("Longitud mayor a 8");
+		_returnedData.message.push("Longitud debe ser mayor a 8");
 	}
 	if(!__returned.isMatched){
 		_returnedData.message.push("No hay coincidencia");

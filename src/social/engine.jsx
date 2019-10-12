@@ -4,7 +4,7 @@ import { BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Header from "./header/header";
 import interface_principal from "./views/interface_principal";
 import views_controller from "./controlviews";
-import complete_user_register from "./views/successUserRegister";
+import complete_usewide_absoluteegister from "./views/successUserRegister";
 //RUTAS
 // import Rutas from "./routes";
 //ERROR 404
@@ -16,7 +16,7 @@ class EngineSocial extends Component {
         <Header/>
         <Switch>
           <Route exact path="/" component={interface_principal}/>
-          <Route path="/complete" component={complete_user_register}/>
+          <Route path="/complete" component={complete_usewide_absoluteegister}/>
           <Route path="/:id" component={views_controller}/>
         </Switch>
       </Router>

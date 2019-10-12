@@ -68,8 +68,10 @@ export default class RegisterBox extends React.Component{
       photoURL: this.state.avatarURL
     }).then(() => {
       db.ref(`users/${user.uid}`).update({
-        username : this.state.username,
-        avatar : this.state.avatarURL
+        avatar : this.state.avatarURL,
+        userdata :{
+          username : this.state.username,
+        },
       }).then(()=>{
         return this.props.success();
       });

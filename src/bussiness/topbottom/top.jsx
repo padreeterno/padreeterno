@@ -4,8 +4,6 @@ import axios from "axios";
 
 import "./index.css";
 import {Ajustes,Notifies} from "../PopUps/popups";
-//CoNFS
-import {DBServer} from "../../web/config/ajustes";
 
 class TOP extends Component {
   componentDidMount(){
@@ -86,7 +84,7 @@ class TOP extends Component {
                           this.state.barraLateral ? (function(){
                             return(<div></div>)
                           }()) : (function(){
-                            return DBServer.Negocios.test[1].data.ofrece.map(function(res,key){
+                            return ["Contabilidad","Mensajeria","Recursos Humanos","Video llamadas","Control envios"].map(function(res,key){
                               return(
                                 <div key={key}>
                                   <div>

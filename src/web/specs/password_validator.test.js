@@ -1,15 +1,15 @@
-import credential from "../credentialverifi";
+import credential from "../modules/password_validator";
 
 describe("credentialverifi",() =>{
 	it("Length",() =>{
 		var result = credential.password("cara","cara");
 		expect(result.isCorrect).toEqual(false);
-		expect(result.message).toEqual(["Longitud mayor a 8"]);
+		expect(result.message).toEqual(["Longitud debe ser mayor a 8"]);
 	});
 	it("Empty",() =>{
 		var result = credential.password("","");
 		expect(result.isCorrect).toEqual(false);
-		expect(result.message).toEqual(["Longitud mayor a 8"]);
+		expect(result.message).toEqual(["Longitud debe ser mayor a 8"]);
 	});
 	it("Wrong",() =>{
 		var result = credential.password("carambolas","carambola");
@@ -19,7 +19,7 @@ describe("credentialverifi",() =>{
 	it("SpaceBar",() =>{
 		var result = credential.password("%carambolas ","&carambolas");
 		expect(result.isCorrect).toEqual(false);
-		expect(result.message).toEqual(["Eliminar el espacio","No hay coincidencia"]);
+		expect(result.message).toEqual(["Eliminar espacio","No hay coincidencia"]);
 	});
 	it("Equal",() =>{
 		var result = credential.password("yoshualopez","yoshualopez");
@@ -29,11 +29,11 @@ describe("credentialverifi",() =>{
 	it("Case Length and SpaceBar",() =>{
 		var result = credential.password("yoshu alopez","yoshu alopez");
 		expect(result.isCorrect).toEqual(false);
-		expect(result.message).toEqual(["Eliminar el espacio"]);
+		expect(result.message).toEqual(["Eliminar espacio"]);
 	});
 	it("Case ",() =>{
 		var result = credential.password("yos al","yos al");
 		expect(result.isCorrect).toEqual(false);
-		expect(result.message).toEqual(["Eliminar el espacio","Longitud mayor a 8"]);
+		expect(result.message).toEqual(["Eliminar espacio","Longitud debe ser mayor a 8"]);
 	});
 })

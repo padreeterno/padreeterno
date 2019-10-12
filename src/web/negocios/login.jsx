@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import fire from "../../fire/auth";
-import { loginUser } from "./modules/loginuser";
+import logincheckout from "../modules/login_user";
 
 export default class Login extends Component {
   constructor(props) {
@@ -18,7 +18,11 @@ export default class Login extends Component {
     this.setState({dontstaySendingLogin : false});
     const email = this.email.value;
     const password = this.password.value;
-    const isLogged = await loginUser({fire,email,password});
+    const isLogged = await logincheckout({
+      fireauth : fire,
+      email : email,
+      password : password,
+    });
     if(isLogged.isSending === 0){
       return this.setState({
         dontstaySendingLogin : true,
@@ -29,10 +33,10 @@ export default class Login extends Component {
   }
   render() {
     return (
-      <div className="R_r">
-        <div className="AhJx">
+      <div className="wide_absolute">
+        <div className="fullscreen_flex_evenly">
           <form
-            className="Clko_9 alct"
+            className="paddingTw_radiusT alct"
             style={{ backgroundColor: "rgba(214, 229, 255, 0.6)" }}
             onSubmit={this.inicioSesion}
           >

@@ -18,7 +18,7 @@ class Main extends Component {
   authListener() {
     fireAuth.onAuthStateChanged(user => {
       if (user) {
-        const database = fireDB.ref("/users/"+ user.uid).child("isBussiness");
+        const database = fireDB.ref("/users/"+ user.uid+"/userdata").child("isBussiness");
         database.once("value",(snapshoot) =>{
           if(snapshoot.val()){
             this.setState({

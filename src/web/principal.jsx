@@ -5,7 +5,6 @@ import handsWorldwebp from "../images/hands_world.webp";
 import "./principal.css"
 //import Body from "./components/body";
 
-import AJUST from "./config/ajustes";
 export default class Principal extends Component {
   render() {
     return(
@@ -32,6 +31,9 @@ class TOP extends Component{
     )
   }
 }
+var phrase_top = "El mundo en tus manos.";
+var phrase_bottom = "En un punto incierto de la tierra, hay una persona como tu, contáctalo.";
+
 class BODY extends Component {
   render() {
     return (
@@ -43,7 +45,7 @@ class BODY extends Component {
           <div className="two rgt_rss">
             <div className="cnt_img_15">
               <div className="cnt_ltt_trs btnSh">
-                <p className="ttdf">{AJUST.DBServer.FWindows.fras.frst}</p>
+                <p className="ttdf">{phrase_top}</p>
               </div>
             </div>
           </div>
@@ -52,7 +54,7 @@ class BODY extends Component {
           <div className="two rgt_rss">
             <div className="cnt_img_15">
               <div className="cnt_ltt_trs">
-                <p className="ttdf">{AJUST.DBServer.FWindows.fras.scnd}</p>
+                <p className="ttdf">{phrase_bottom}</p>
               </div>
             </div>
           </div>

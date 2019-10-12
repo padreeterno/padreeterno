@@ -20,7 +20,7 @@ export default class Inicio extends Component {
   render() {
     const { viewChanged } = this.state;
     return (
-      <div style={{left: 0,display: "inline-grid",gridTemplateColumns: "45% 55%"}} className="R_r">
+      <div style={{left: 0,display: "inline-grid",gridTemplateColumns: "45% 55%"}} className="wide_absolute">
         {/**LEFT*/}
         <div style={{background: "rgb(142, 156, 255)"}} className="_w _h flx ccN">
           <div style={{ display : "block", textAlign : "center"}}>

@@ -1,5 +1,5 @@
 import React,{ Component } from "react";
-import credential from "../modules/credentialverifi";
+import credential from "../../../modules/password_validator";
 
 export default class Registro extends Component{
     constructor(props){
@@ -33,7 +33,7 @@ export default class Registro extends Component{
         });
       }
       this.setState({
-        vpas : true,
+        vpas : false,
         pushPasswordRequeriments : __password.message
       });
     }

@@ -8,10 +8,7 @@ import {E404} from "./Errors";
 import SocialRouter from "./social/router";
 import NegociosRouter from "./negocios/router";
 //URIS
-import Personal from "./negocios/uris/personal";
-import EmpresaRegister from "./negocios/views/empresa_register";
-import Estudiante from "./negocios/uris/estudiante";
-import Institucion from "./negocios/uris/institucion";
+import RegisterBussinessRouter from "./negocios/router_uris"
 
 import LoginNego from "./negocios/login";
 //PRINCIPALES
@@ -26,13 +23,9 @@ class RouterWeb extends Component {
           <Route exact path="/negocios" component={Negocios} />
           <Route exact path="/social" component={Social} />
           <Route path="/negocios/loggin" component={LoginNego} />
+          <Route path="/negocios/register/:id" component={RegisterBussinessRouter} />
           <Route exact path="/negocios/:id" component={NegociosRouter} />
           <Route exact path="/social/:id" component={SocialRouter} />
-          {/**/}
-          <Route path="/negocios/register/personal" component={Personal} />
-          <Route path="/negocios/register/empresa" component={EmpresaRegister} />
-          <Route path="/negocios/register/estudiante" component={Estudiante} />
-          <Route path="/negocios/register/institución" component={Institucion} />
           <Route component={E404} />
         </Switch>
       </Router>

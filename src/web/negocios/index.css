@@ -1,0 +1,101 @@
+.container_form,.container_services_plans{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--def-bbg-);
+}
+.container_services_plans{
+    padding: 0px 50px;
+    flex-direction: row;
+}
+.card_service_price{
+    width: 100%;
+    padding: 40px 30px;
+    box-shadow: 0 1px 15px rgb(204, 204, 204);
+    border: solid 1px rgb(224, 224, 224);
+    background: rgb(250, 250, 250);
+}
+.services_plans_login{
+    position: absolute;
+    right: 0;
+    color: white;
+    top: 0;
+    background: var(--color-primary-button-);
+    padding: 20px;
+    font-size: 15px;
+}
+.info_card_service_price h1{
+    padding: 10px 0px;
+}
+.info_card_service_price div p{
+    font-size: 16px;
+    color: rgb(84, 84, 84);
+}
+.info_card_service_price_text{
+    letter-spacing: 2;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.price_card_service_price{
+    color: var(--color-primary-button-);
+    font-size: 25px;
+    padding: 10px;
+}
+.header_card_service_price{
+
+}
+.header_card_service_price a button{
+    margin: 20px 0px;
+    width: 100%;
+    height: 70px;
+    border: none;
+    background: var(--color-primary-button-);
+    color: #fafafa;
+}
+.footer_card_service_price{
+
+}
+
+.footer_card_service_price li{
+    list-style: none;
+    padding: 20px 0px;
+    color: rgb(84, 84, 84);
+    font-weight: normal;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.footer_card_service_price li p{
+    font-size: 16px;
+    padding-left: 10px;
+}
+#form_register_bussiness{
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    background-color: transparent;
+
+}
+.eM566 {
+    padding: 5px;
+    border-radius: 5px;
+    background: #d6e5ff;
+    color: #656565;
+    cursor: pointer;
+}
+#form_register_bussiness h1{
+    color: white;
+}
+#form_register_bussiness div{
+    padding: 20px 0px;
+}
+#form_register_bussiness button[type = "submit"]{
+    color: white;
+    background-color: var(--frm-sbt-);
+    margin: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0px;
+    border-radius: 0;
+}
