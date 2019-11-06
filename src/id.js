@@ -8,7 +8,7 @@ exports.userId = function(){
     });
     return "user"+uuid;
 }
-exports.guestId = () => {
+exports.guestId = function(){
     var dt = new Date().getTime();
     var uuid = 'guest-yxxxyyy'.replace(/[xy]/g, function(c) {
         var r = (dt + Math.random()*16)%16 | 0;
@@ -18,7 +18,7 @@ exports.guestId = () => {
     });
     return uuid;
 }
-exports.shortId = () => {
+exports.shortId = function(){
     var dt = new Date().getTime();
     var uuid = 'xyy-xxy'.replace(/[xy]/g, function(c) {
         var r = (dt + Math.random()*16)%16 | 0;
