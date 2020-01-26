@@ -1,4 +1,4 @@
-module.exports = async ({fireauth,email,password,firedatabase,userdata}) =>{
+export default async ({fireauth,email,password,firedatabase,userdata}) =>{
     const retorno = { isSending : null,message : null, code : null}
     try {
         const resultUID = await fireauth.createUserWithEmailAndPassword(email,password);

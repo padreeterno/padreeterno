@@ -1,4 +1,4 @@
-module.exports = async ({ fireauth, email, password }) => {
+export default async ({ fireauth, email, password }) => {
     const retorno = { isSending: null, message: null }
     try {
         await fireauth.signInWithEmailAndPassword(email, password);
